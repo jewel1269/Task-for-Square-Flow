@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header with Tailwind CSS</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="task.css">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav x-data="{ isOpen: false }" class="bg-white shadow dark:bg-gray-900">
+            <div class="w-full   border border-gray-500 p-4 px-6 fixed py-4 ">
+                <div class="lg:flex lg:items-center lg:justify-between ">
+                    <div class="flex items-center justify-between">
+                        <a href="#" class="mx-auto">
+                            <h1 class="uppercase text-2xl font-semibold">Logo</h1>
+                        </a>
+                        <!-- Mobile menu button -->
+                        <div class="flex lg:hidden">
+                            <button x-cloak @click="isOpen = !isOpen" type="button" class="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400" aria-label="toggle menu">
+                                <svg x-show="!isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16" />
+                                </svg>
+                                <svg x-show="isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
+                    <div x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']" class="absolute inset-x-0 z-100 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white shadow-md lg:bg-transparent lg:dark:bg-transparent lg:shadow-none dark:bg-gray-900 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:w-auto lg:opacity-100 lg:translate-x-0">
+                        <div class="-mx-4 lg:flex  lg:items-center">
+                            <a href="#" class="block mx-4      text-black capitalize font-semibold dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">About </a>
+                            <a href="#" class="block mx-4 mt-4 text-black capitalize font-semibold lg:mt-0 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">Service</a>
+                            <a href="#" class="block mx-4 mt-4 text-black capitalize font-semibold lg:mt-0 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
+                            <a href="#" class="block mx-4 mt-4 text-black capitalize border border-black p-1 rounded-2xl font-semibold lg:mt-0 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">Submit Listing</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div  id="imga" class="w-full bg-center   bg-cover" style="background-image: url('https://img.freepik.com/free-photo/view-car-running-high-speed_23-2150635392.jpg?t=st=1720369000~exp=1720372600~hmac=9889d10badaf23188c28bcdab691cd41ecab6b70f0052ed2deb816345c9f6e5a&w=1380');">
+            <div class="flex items-center justify-start px-36 w-full h-full bg-gray-900/40">
+                <div class="text-start">
+                    <h1 class="text-3xl font-semibold text-white lg:text-4xl">$35,0000 </h1>
+                    <p class="text-3xl font-semibold text-white lg:text-4xl">Mercedes-Benz, C Class</p>
+                    <div class="flex text-md justify-start gap-5 font-semibold text-white lg:text-xl">
+                        <h1>Petrol</h1>
+                        <h1>100 miles</h1>
+                        <h1>automobiles</h1>
+                    </div>
+                    <button class="w-full px-5 py-2 mt-4 text-sm font-medium text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md lg:w-auto hover:bg-blue-500 focus:outline-none focus:bg-blue-500">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="bg-gray-100 flex items-center justify-center">
+        <div class="container mx-auto p-4">
+            <h2 class="text-2xl font-semibold mb-6">Browse by Type</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <div class="p-4 bg-white rounded-lg shadow-md flex flex-col items-center">
+                    <i class="fas fa-car-side text-4xl mb-2"></i>
+                    <p class="text-center mt-2">SUV</p>
+                </div>
+                <div class="p-4 bg-white rounded-lg shadow-md flex flex-col items-center">
+                    <i class="fas fa-car text-4xl mb-2"></i>
+                    <p class="text-center mt-2">Sedan</p>
+                </div>
+                <div class="p-4 bg-white rounded-lg shadow-md flex flex-col items-center">
+                    <i class="fas fa-car-rear text-4xl mb-2"></i>
+                    <p class="text-center mt-2">Hatchback</p>
+                </div>
+                <div class="p-4 bg-white rounded-lg shadow-md flex flex-col items-center">
+                    <i class="fas fa-car-alt text-4xl mb-2"></i>
+                    <p class="text-center mt-2">Coupe</p>
+                </div>
+                <div class="p-4 bg-white rounded-lg shadow-md flex flex-col items-center">
+                    <i class="fas fa-bolt text-4xl mb-2"></i>
+                    <p class="text-center mt-2">Hybrid</p>
+                </div>
+                <div class="p-4 bg-white rounded-lg shadow-md flex flex-col items-center">
+                    <i class="fas fa-car-convertible text-4xl mb-2"></i>
+                    <p class="text-center mt-2">Convertible</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mx-auto p-4">
+        <h2 class="text-3xl font-semibold mb-4">Explore All Vehicles</h2>
+        <div class="flex space-x-4 mb-6">
+            <a href="#" class="text-blue-500 hover:underline">Recent Cars</a>
+            <a href="#" class="text-gray-500 hover:underline">Featured Cars</a>
+            <a href="#" class="text-gray-500 hover:underline">Popular Cars</a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            <!-- Card 1 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="https://img.freepik.com/premium-photo/sleek-black-sports-car-speeding-down-winding-road_777271-25365.jpg?w=740" alt="Toyota Camry New" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <span class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Great Price</span>
+                    <h3 class="text-lg font-bold mt-2">Toyota Camry New</h3>
+                    <p class="text-sm  text-gray-500">3.5 D5 PowerPulse Momentum 5dr AWD Auto</p>
+                    <hr>
+                    <div class="flex justify-between mt-4">
+                        <div class="text-sm flex gap-5 text-gray-500">
+                            <p><i class="fas fa-road mr-1"></i>20 Miles</p>
+                            <p><i class="fas fa-gas-pump mr-1"></i>Petrol</p>
+                            <p><i class="fas fa-cogs mr-1"></i>Automatic</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="text-right flex justify-between items-center">
+                        <p class="text-xl font-bold">$40,000</p>
+                        <a href="#" class="text-blue-500 hover:underline flex items-center gap-2 justify-center text-sm">View Details <i class="fa-solid fa-arrow-right"></i></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="https://cdn.pixabay.com/photo/2017/04/06/22/11/car-2209439_1280.png" alt="T-Cross - 2023" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mt-2">T-Cross - 2023</h3>
+                    <p class="text-sm text-gray-500">4.0 D5 PowerPulse Momentum 5dr AWD Auto</p>
+                    <hr>
+                    <div class="flex justify-between mt-4">
+                        <div class="text-sm flex gap-5  text-gray-500">
+                            <p><i class="fas fa-road mr-1"></i>15 Miles</p>
+                            <p><i class="fas fa-gas-pump mr-1"></i>Petrol</p>
+                            <p><i class="fas fa-cogs mr-1"></i>CVT</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="text-right flex mt-3 justify-between items-center">
+                        <p class="text-xl font-bold">$15,000</p>
+                        <a href="#" class="text-blue-500 hover:underline flex items-center gap-2 justify-center text-sm">View Details <i class="fa-solid fa-arrow-right"></i></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="https://media.istockphoto.com/id/174860711/photo/yellow-supercar.jpg?s=2048x2048&w=is&k=20&c=A38t0W621j1KxXCqwlV-JMYuxTPffRgJAYoHiuTpHZQ=" alt="C-Class - 2023" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mt-2">C-Class - 2023</h3>
+                    <p class="text-sm text-gray-500">4.0 D5 PowerPulse Momentum 5dr AWD Auto</p>
+                    <hr>
+                    <div class="flex justify-between mt-4">
+                        <div class="text-sm flex gap-5  text-gray-500">
+                            <p><i class="fas fa-road mr-1"></i>50 Miles</p>
+                            <p><i class="fas fa-gas-pump mr-1"></i>Petrol</p>
+                            <p><i class="fas fa-cogs mr-1"></i>Automatic</p>
+                        </div>
+                        
+                    </div>
+                    <hr>
+                    <div class="text-right flex mt-3 justify-between items-center">
+                        <p class="text-xl font-bold">$150,000</p>
+                        <a href="#" class="text-blue-500 hover:underline flex items-center gap-2 justify-center text-sm">View Details <i class="fa-solid fa-arrow-right"></i></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="https://media.istockphoto.com/id/184111779/photo/black-supercar.jpg?s=2048x2048&w=is&k=20&c=rwhumIsHKUU99cVmxyqdLUEJmLBI98N8MbgnHzOaq0U=" alt="Ford Transit - 2021" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <span class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Great Price</span>
+                    <h3 class="text-lg font-bold mt-2">Ford Transit - 2021</h3>
+                    <p class="text-sm  text-gray-500">4.0 D5 PowerPulse Momentum 5dr AWD Auto</p>
+                    <hr>
+                    <div class="flex justify-between mt-4">
+                        <div class="text-sm flex gap-5  text-gray-500">
+                            <p><i class="fas fa-road mr-1"></i>2500 Miles</p>
+                            <p><i class="fas fa-gas-pump mr-1"></i>Diesel</p>
+                            <p><i class="fas fa-cogs mr-1"></i>Manual</p>
+                        </div>
+                        
+                    </div>
+                    <hr>
+                    <div class="text-right mt-2 justify-between items-center">
+                        <p class="text-xl font-bold">$22,000</p>
+                        <a href="#" class="text-blue-500 hover:underline flex items-center gap-2 justify-center text-sm">View Details <i class="fa-solid fa-arrow-right"></i></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 5 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="https://media.istockphoto.com/id/184931746/photo/red-supercar.jpg?s=2048x2048&w=is&k=20&c=g95EUrwXaSXWiD2T1Nvxx_wZ0i5qx5knc8gvO27tQFU=" alt="New GLC - 2023" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Low Mileage</span>
+                    <h3 class="text-lg font-bold mt-2">New GLC - 2023</h3>
+                    <p class="text-sm  text-gray-500">4.0 D5 PowerPulse Momentum 5dr AWD Auto</p>
+                    <hr>
+                    <div class="flex justify-between mt-4">
+                    <p class="text-sm   text-gray-500">4.0 D5 PowerPulse Momentum 5dr AWD Auto</p>
+                    <hr>
+                        <div class="text-sm flex gap-5  text-gray-500">
+                            <p><i class="fas fa-road mr-1"></i>50 Miles</p>
+                            <p><i class="fas fa-gas-pump mr-1"></i>Petrol</p>
+                            <p><i class="fas fa-cogs mr-1"></i>Automatic</p>
+                        </div>
+                       
+                    </div>
+                    <hr>
+                    <div class="text-right mt-2 flex justify-between items-center">
+                        <p class="text-xl font-bold">$95,000</p>
+                        <a href="#" class="text-blue-500 hover:underline flex items-center gap-2 justify-center text-sm">View Details <i class="fa-solid fa-arrow-right"></i></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 6 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="https://media.istockphoto.com/id/476009618/photo/metallic-gray-sports-car-isolated-on-gray-background.jpg?s=2048x2048&w=is&k=20&c=bIJ97c8sNHXjM-xmYbDFDEJXEsvAoeAc4o3AkKHZemQ=" alt="Audi A6 3.5 - New" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mt-2">Audi A6 3.5 - New</h3>
+                    <p class="text-sm text-gray-500">3.5 D5 PowerPulse Momentum 5dr AWD Auto</p>
+                    <hr>
+                    <div class="flex justify-between mt-4">
+                        <div class="text-sm flex gap-5  text-gray-500">
+                            <p><i class="fas fa-road mr-1"></i>100 Miles</p>
+                            <p><i class="fas fa-gas-pump mr-1"></i>Petrol</p>
+                            <p><i class="fas fa-cogs mr-1"></i>Automatic</p>
+                        </div>
+                       
+                    </div>
+                    <hr>
+                    <div class="text-right flex mt-2 justify-between items-center">
+                        <p class="text-xl font-bold">$58,000</p>
+                        <a href="#" class="text-blue-500 hover:underline flex items-center gap-2 justify-center text-sm">View Details <i class="fa-solid fa-arrow-right"></i></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 7 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="https://media.istockphoto.com/id/474625120/photo/metallic-gray-sports-car-isolated-on-gray-background-original-design.jpg?s=2048x2048&w=is&k=20&c=j0h7MdeTpnYVUwrs4WfTccBh0j8Dv2L6QKgQl-YvUh0=" alt="Corolla Altis - 2023" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mt-2">Corolla Altis - 2023</h3>
+                    <p class="text-sm text-gray-500">3.5 D5 PowerPulse Momentum 5dr AWD Auto</p>
+                    <hr>
+                    <div class="flex justify-between mt-4">
+                        <div class="text-sm flex gap-5  text-gray-500">
+                            <p><i class="fas fa-road mr-1"></i>15000 Miles</p>
+                            <p><i class="fas fa-gas-pump mr-1"></i>Petrol</p>
+                            <p><i class="fas fa-cogs mr-1"></i>CVT</p>
+                        </div>
+                        
+                    </div>
+                    <hr>
+                    <div class="text-right flex mt-2 justify-between items-center">
+                        <p class="text-xl font-bold">$45,000</p>
+                        <a href="#" class="text-blue-500 hover:underline flex items-center gap-2 justify-center text-sm">View Details <i class="fa-solid fa-arrow-right"></i></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 8 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="https://media.istockphoto.com/id/157422424/photo/black-sports-car.jpg?s=2048x2048&w=is&k=20&c=Iqa1ZzmPeafvLm8iqm4mvzgVcT2nhfssPOns0AH7zx8=" alt="Ford Explorer 2023" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <span class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Great Price</span>
+                    <h3 class="text-lg font-bold mt-2">Ford Explorer 2023</h3>
+                    <p class="text-sm text-gray-500">3.5 D5 PowerPulse Momentum 5dr AWD Auto</p>
+                    <hr>
+                    <div class="flex justify-between mt-4">
+                        <div class="text-sm flex gap-5  text-gray-500">
+                            <p><i class="fas fa-road mr-1"></i>10 Miles</p>
+                            <p><i class="fas fa-gas-pump mr-1"></i>Diesel</p>
+                            <p><i class="fas fa-cogs mr-1"></i>CVT</p>
+                        </div>
+                       
+                    </div>
+                    <hr>
+                    <div class="text-right flex mt-2 justify-between items-center">
+                        <p class="text-xl font-bold">$35,000</p>
+                        <a href="#" class="text-blue-500 hover:underline flex items-center gap-2 justify-center text-sm">View Details <i class="fa-solid fa-arrow-right"></i></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="lg:flex justify-around items-center">
+        <div class="">
+            <h1 class="text-5xl font-semibold mb-3">Online, In Person, <br> everywhere</h1>
+            <p class="text-black mb-3">Choose from thousands of Vehicles from multiple brands and buy online with click & <br> drive, or visit us at one of our delership today </p>
+            <button class="btn rounded-lg border border-black bg-black text-white p-2 btn-ghost ">get Started</button>
+
+        </div>
+        <div class="">
+            <img src="/Image/suv-1344716_960_720.jpg" class="h-96 rounded-2xl" alt="">
+
+        </div>
+    </div>
+
+    <div class="bg-gray-50 flex items-center justify-center">
+        <div class="container mx-auto p-4">
+            <h2 class="text-4xl font-semibold mb-6">Why Choose Us?</h2>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-4 mb-6">
+                <div class="p-4 bg-white rounded-lg shadow-md flex flex-col items-start">
+                    <img src="/Image/image1.png" class="h-14 mb-2"></img>
+                    
+                    
+                    <p class="text-start font-semibold mt-2">Special Financing Offers</p>
+                    <p>Oue Stress free finance Department that can find financial suliations to save you money.</p>
+                </div>
+                <div class="p-4 bg-white rounded-lg shadow-md flex flex-col items-start">
+                    <img src="https://www.shutterstock.com/shutterstock/photos/2180594735/display_1500/stock-vector-black-bulb-with-checkmark-like-quick-tip-icon-flat-stroke-linear-simple-trend-modern-efficiency-2180594735.jpg" class="h-16 mb-2"></img>
+                    <p class="text-start font-semibold mt-2">Trusted Car Dealership</p>
+                    <p>Oue Stress free finance Department that can find financial suliations to save you money.</p>
+                </div>
+                <div class="p-4 bg-white rounded-lg shadow-md flex flex-col items-start">
+                    <img src="/Image/image2.png" class="h-14 mb-2"></img>
+                    <p class="text-start font-semibold mt-2">Transparent Pricing</p>
+                    <p>Oue Stress free finance Department that can find financial suliations to save you money.</p>
+                </div>
+                <div class="p-4 bg-white rounded-lg shadow-md flex flex-col items-start">
+                    <img src="/Image/image.png" class="h-14 mb-2"></img>
+                    <p class="text-start font-semibold mt-2">Expert Car Service</p>
+                    <p>Oue Stress free finance Department that can find financial suliations to save you money.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mx-auto p-4">
+        <h2 class="text-3xl font-semibold mb-4">Specials:</h2>
+       
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-4">
+            <!-- Card 1 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="https://img.freepik.com/premium-photo/sleek-black-sports-car-speeding-down-winding-road_777271-25365.jpg?w=740" alt="Toyota Camry New" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <span class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Great Price</span>
+                    <h3 class="text-lg font-bold mt-2">Toyota Camry New</h3>
+                    <p class="text-sm  text-gray-500">3.5 D5 PowerPulse Momentum 5dr AWD Auto</p>
+                    <hr>
+                    <div class="flex justify-between mt-4">
+                        <div class="text-sm flex gap-5 text-gray-500">
+                            <p><i class="fas fa-road mr-1"></i>20 Miles</p>
+                            <p><i class="fas fa-gas-pump mr-1"></i>Petrol</p>
+                            <p><i class="fas fa-cogs mr-1"></i>Automatic</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="text-right flex justify-between items-center">
+                        <p class="text-xl font-bold">$40,000</p>
+                        <a href="#" class="text-blue-500 hover:underline flex items-center gap-2 justify-center text-sm">View Details <i class="fa-solid fa-arrow-right"></i></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="https://cdn.pixabay.com/photo/2017/04/06/22/11/car-2209439_1280.png" alt="T-Cross - 2023" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mt-2">T-Cross - 2023</h3>
+                    <p class="text-sm text-gray-500">4.0 D5 PowerPulse Momentum 5dr AWD Auto</p>
+                    <hr>
+                    <div class="flex justify-between mt-4">
+                        <div class="text-sm flex gap-5  text-gray-500">
+                            <p><i class="fas fa-road mr-1"></i>15 Miles</p>
+                            <p><i class="fas fa-gas-pump mr-1"></i>Petrol</p>
+                            <p><i class="fas fa-cogs mr-1"></i>CVT</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="text-right flex mt-3 justify-between items-center">
+                        <p class="text-xl font-bold">$15,000</p>
+                        <a href="#" class="text-blue-500 hover:underline flex items-center gap-2 justify-center text-sm">View Details <i class="fa-solid fa-arrow-right"></i></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="https://media.istockphoto.com/id/174860711/photo/yellow-supercar.jpg?s=2048x2048&w=is&k=20&c=A38t0W621j1KxXCqwlV-JMYuxTPffRgJAYoHiuTpHZQ=" alt="C-Class - 2023" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mt-2">C-Class - 2023</h3>
+                    <p class="text-sm text-gray-500">4.0 D5 PowerPulse Momentum 5dr AWD Auto</p>
+                    <hr>
+                    <div class="flex justify-between mt-4">
+                        <div class="text-sm flex gap-5  text-gray-500">
+                            <p><i class="fas fa-road mr-1"></i>50 Miles</p>
+                            <p><i class="fas fa-gas-pump mr-1"></i>Petrol</p>
+                            <p><i class="fas fa-cogs mr-1"></i>Automatic</p>
+                        </div>
+                        
+                    </div>
+                    <hr>
+                    <div class="text-right flex mt-3 justify-between items-center">
+                        <p class="text-xl font-bold">$150,000</p>
+                        <a href="#" class="text-blue-500 hover:underline flex items-center gap-2 justify-center text-sm">View Details <i class="fa-solid fa-arrow-right"></i></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="https://media.istockphoto.com/id/184111779/photo/black-supercar.jpg?s=2048x2048&w=is&k=20&c=rwhumIsHKUU99cVmxyqdLUEJmLBI98N8MbgnHzOaq0U=" alt="Ford Transit - 2021" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <span class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Great Price</span>
+                    <h3 class="text-lg font-bold mt-2">Ford Transit - 2021</h3>
+                    <p class="text-sm  text-gray-500">4.0 D5 PowerPulse Momentum 5dr AWD Auto</p>
+                    <hr>
+                    <div class="flex justify-between mt-4">
+                        <div class="text-sm flex gap-5  text-gray-500">
+                            <p><i class="fas fa-road mr-1"></i>2500 Miles</p>
+                            <p><i class="fas fa-gas-pump mr-1"></i>Diesel</p>
+                            <p><i class="fas fa-cogs mr-1"></i>Manual</p>
+                        </div>
+                        
+                    </div>
+                    <hr>
+                    <div class="text-right mt-2 justify-between items-center">
+                        <p class="text-xl font-bold">$22,000</p>
+                        <a href="#" class="text-blue-500 hover:underline flex items-center gap-2 justify-center text-sm">View Details <i class="fa-solid fa-arrow-right"></i></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 5 -->
+            
+        </div>
+        <div class="flex gap-5 mt-5">
+            <p class="border border-black p-3 rounded-xl "><i class="fa-solid fa-chevron-left"></i></p>
+            <p class="border border-black p-3 rounded-xl "><i class="fa-solid fa-angle-right"></i></p>
+        </div>
+    </div>
+
+    <div class="bg-gray-100">
+        <div class="container mx-auto p-4">
+            <div class="flex justify-between">
+                <h2 class="text-3xl font-semibold mb-4 text-center">What our customers say</h2>
+            <p class="text-gray-500">Rated 4.7 / 5 based on 28,370 reviews Showing our 4 & 5 star reviews</p>
+            </div>
+            <div class="flex justify-between items-center mb-6">
+            </div>
+            <div class="relative">
+                <div class="flex space-x-8 overflow-x-auto no-scrollbar">
+                    <!-- Review Card 1 -->
+                    <div class="flex-shrink-0 w-72 p-4 bg-white rounded-lg shadow-md">
+                        <div class="flex items-center mb-2">
+                            <div class="text-green-500">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="ml-2 text-gray-500"><i class="fas fa-check-circle"></i> Verified</span>
+                        </div>
+                        <h3 class="font-semibold mb-2">Sales process was simple and easy</h3>
+                        <p class="text-gray-500 text-sm mb-2">Sales process was simple and easy. Maximillion was friendly and I didn’t feel...</p>
+                        <p class="font-semibold">Ali Tufan</p>
+                    </div>
+                    <!-- Review Card 2 -->
+                    <div class="flex-shrink-0 w-72 p-4 bg-white rounded-lg shadow-md">
+                        <div class="flex items-center mb-2">
+                            <div class="text-green-500">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="ml-2 text-gray-500"><i class="fas fa-check-circle"></i> Verified</span>
+                        </div>
+                        <h3 class="font-semibold mb-2">Good job for project</h3>
+                        <p class="text-gray-500 text-sm mb-2">Sales process was simple and easy. Maximillion was friendly and I didn’t feel...</p>
+                        <p class="font-semibold">John Doe</p>
+                    </div>
+                    <!-- Review Card 3 -->
+                    <div class="flex-shrink-0 w-72 p-4 bg-white rounded-lg shadow-md">
+                        <div class="flex items-center mb-2">
+                            <div class="text-green-500">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="ml-2 text-gray-500"><i class="fas fa-check-circle"></i> Verified</span>
+                        </div>
+                        <h3 class="font-semibold mb-2">Sales process was simple and easy</h3>
+                        <p class="text-gray-500 text-sm mb-2">At Voiture what matters to us is making your car search and buying.</p>
+                        <p class="font-semibold">Brooklyn Simmons</p>
+                    </div>
+                    <!-- Review Card 4 -->
+                    <div class="flex-shrink-0 w-72 p-4 bg-white rounded-lg shadow-md">
+                        <div class="flex items-center mb-2">
+                            <div class="text-green-500">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="ml-2 text-gray-500"><i class="fas fa-check-circle"></i> Verified</span>
+                        </div>
+                        <h3 class="font-semibold mb-2">Good job for project</h3>
+                        <p class="text-gray-500 text-sm mb-2">Sales process was simple and easy. Maximillion was friendly and I didn’t feel...</p>
+                        <p class="font-semibold">Augusta Silva</p>
+                    </div>
+                </div>
+                <button class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
