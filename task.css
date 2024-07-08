@@ -1,3 +1,11 @@
 #imga{
     height: 800px;
 }
+
+#last{
+    height: 550px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
